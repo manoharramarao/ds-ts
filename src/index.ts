@@ -1,4 +1,4 @@
-console.log('Try npm run lint/fix!');
+/* console.log('Try npm run lint/fix!');
 
 const longString =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut aliquet diam.';
@@ -22,3 +22,18 @@ export function doSomeStuff(
   return;
 }
 // TODO: more examples
+ */
+import LinkedList from './linked-list/linked-list';
+
+console.log('Linked lists');
+let linkedList: LinkedList<number> = new LinkedList();
+for (let i = 1; i <= 10; i++) {
+  linkedList.addBack(i);
+}
+linkedList.printList();
+
+function main() {
+  console.log('Welcome!');
+}
+
+export default main;
