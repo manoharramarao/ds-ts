@@ -31,8 +31,11 @@ for (let i = 1; i <= 10; i++) {
   linkedList.addBack(i);
 }
 linkedList.printList();
-console.log('Remove item from list');
+console.log('Remove first item of the list');
 linkedList.deleteFront();
+linkedList.printList();
+console.log('Remove last item of the list');
+linkedList.deleteBack();
 linkedList.printList();
 
 function main() {

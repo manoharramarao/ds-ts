@@ -107,11 +107,23 @@ class LinkedList<T> {
   }
 
   /**
-   * Removes head
+   * Removes 1st item of the list
    */
   deleteFront(): void {
     if (this.head) {
       this.head = this.head.next;
+    } else {
+      console.log('List is empty');
+    }
+  }
+
+  /**
+   * Removes last item of the list
+   */
+  deleteBack(): void {
+    if (this.tail) {
+      this.tail = this.tail.prev!;
+      this.tail.next = null;
     } else {
       console.log('List is empty');
     }
