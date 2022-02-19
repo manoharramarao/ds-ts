@@ -112,6 +112,7 @@ class LinkedList<T> {
   deleteFront(): void {
     if (this.head) {
       this.head = this.head.next;
+      this.length -= 1;
     } else {
       console.log('List is empty');
     }
@@ -124,6 +125,7 @@ class LinkedList<T> {
     if (this.tail) {
       this.tail = this.tail.prev!;
       this.tail.next = null;
+      this.length -= 1;
     } else {
       console.log('List is empty');
     }
@@ -135,15 +137,57 @@ class LinkedList<T> {
    */
   delete(val: T): void {
     let currentNode = this.head;
+    let isFound: boolean = false;
     while (currentNode) {
       if (currentNode.val === val) {
         currentNode.prev
           ? (currentNode.prev.next = currentNode.next)
-          : this.head,
-          (this.tail = null);
+          : (this.head = currentNode.next);
+        currentNode.next
+          ? (currentNode.next.prev = currentNode.prev)
+          : (this.tail = currentNode.prev);
+        this.length -= 1;
+        isFound = true;
         break;
       }
       currentNode = currentNode.next;
+    }
+    if (!isFound) {
+      console.log('Value not found in the list');
+    }
+  }
+
+  /**
+   * Deletes node at given position. 1st item starts with position 1
+   * @param position position of the node
+   */
+  deleteAt(position: number): void {
+    let i: number = 1;
+    if (this.head) {
+      let currentNode = this.head;
+      if (position > this.length || position < 1) {
+        console.log('position is out of bound');
+      } else if (position === 1) {
+        this.head = this.head.next;
+        if (this.head) {
+          this.head.prev = null;
+        }
+        console.log(`Node at ${position} deleted`);
+      } else {
+        while (position !== i) {
+          currentNode = currentNode?.next!;
+          i++;
+        }
+        currentNode.prev
+          ? (currentNode.prev.next = currentNode.next)
+          : (this.head = currentNode.next);
+        currentNode.next
+          ? (currentNode.next.prev = currentNode.prev)
+          : (this.tail = currentNode.prev);
+        console.log(`Node at ${position} deleted`);
+      }
+    } else {
+      console.log('The list is empty');
     }
   }
 

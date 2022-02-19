@@ -40,6 +40,24 @@ linkedList.printList();
 console.log('Remove 7 from list');
 linkedList.delete(7);
 linkedList.printList();
+console.log('Remove 9 from list by passing value');
+linkedList.delete(9);
+linkedList.printList();
+console.log("Delete item that doesn't exist");
+linkedList.delete(9);
+
+linkedList = new LinkedList();
+for (let i = 1; i <= 10; i++) {
+  linkedList.addBack(i);
+}
+console.log('New list prepared');
+linkedList.printList();
+linkedList.deleteAt(0);
+linkedList.deleteAt(100);
+linkedList.deleteAt(1);
+linkedList.deleteAt(8);
+linkedList.deleteAt(5);
+linkedList.printList();
 
 function main() {
   console.log('Welcome!');
