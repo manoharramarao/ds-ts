@@ -37,6 +37,9 @@ linkedList.printList();
 console.log('Remove last item of the list');
 linkedList.deleteBack();
 linkedList.printList();
+console.log('Remove 7 from list');
+linkedList.delete(7);
+linkedList.printList();
 
 function main() {
   console.log('Welcome!');

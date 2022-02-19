@@ -130,6 +130,24 @@ class LinkedList<T> {
   }
 
   /**
+   * Deletes first occurance of the node with specified value.
+   * @param {T} val Value of the node
+   */
+  delete(val: T): void {
+    let currentNode = this.head;
+    while (currentNode) {
+      if (currentNode.val === val) {
+        currentNode.prev
+          ? (currentNode.prev.next = currentNode.next)
+          : this.head,
+          (this.tail = null);
+        break;
+      }
+      currentNode = currentNode.next;
+    }
+  }
+
+  /**
    * Prints the entire list
    */
   printList(): void {
