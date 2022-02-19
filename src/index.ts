@@ -31,6 +31,9 @@ for (let i = 1; i <= 10; i++) {
   linkedList.addBack(i);
 }
 linkedList.printList();
+console.log('Remove item from list');
+linkedList.deleteFront();
+linkedList.printList();
 
 function main() {
   console.log('Welcome!');
